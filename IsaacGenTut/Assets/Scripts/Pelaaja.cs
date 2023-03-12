@@ -9,9 +9,10 @@ public class Pelaaja : MonoBehaviour
 
 
     Rigidbody2D rb;
+    public Animator Anim;
 
-    float horizontal;
-    float vertical;
+    float horizontal = 0f;
+    float vertical = 0f;
 
     public float nopeus = 400.0f;
 
@@ -24,12 +25,28 @@ public class Pelaaja : MonoBehaviour
     {
 
         horizontal = Input.GetAxisRaw("Horizontal"); 
-        vertical = Input.GetAxisRaw("Vertical"); 
+        vertical = Input.GetAxisRaw("Vertical");
+        Move();
+        
+        
     }
 
-    void FixedUpdate()
+    void Move()
     {
-        rb.velocity = new Vector2(horizontal * nopeus * Time.deltaTime, vertical * nopeus * Time.deltaTime);
+        if(horizontal != 0f | vertical != 0f)
+        {
+            rb.velocity = new Vector2(horizontal * nopeus * Time.deltaTime, vertical * nopeus * Time.deltaTime);
+            Anim.SetBool("Walking", true);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0,0);
+            Anim.SetBool("Walking", false);
+        }
+        
+       
+        
+        
     }
 
 
