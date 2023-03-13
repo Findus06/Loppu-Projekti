@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 9083151510564473207}
-  nopeus: 1200
+  nopeus: 1600
 --- !u!50 &9083151510564473205
 Rigidbody2D:
   serializedVersion: 4
